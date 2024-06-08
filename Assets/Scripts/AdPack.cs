@@ -12,7 +12,8 @@ public class AdPack : MonoBehaviour, IItem
         // LivingEntity컴포넌트가 있다면
         if (life != null)
         {
-            life.RestoreSpeed(adSpeed); 
+            life.RestoreSpeed(adSpeed);
+            Debug.Log("SpeedItem 사용됨, 추가된 속도: " + adSpeed);
         }
 
         // 사용되었으므로, 자신을 파괴

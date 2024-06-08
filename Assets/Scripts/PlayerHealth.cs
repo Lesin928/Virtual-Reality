@@ -35,6 +35,7 @@ public class PlayerHealth : LivingEntity {
         // 체력 슬라이더의 값을 현재 체력값으로 변경
         healthSlider.value = health;
 
+
         // 플레이어 조작을 받는 컴포넌트들 활성화
         playerMovement.enabled = true;
         playerShooter.enabled = true;
@@ -47,16 +48,6 @@ public class PlayerHealth : LivingEntity {
         // 체력 갱신
         healthSlider.value = health;
     }
-
-    // 이동속도 증가
-    public override void RestoreSpeed(float newSpeed)
-    {
-        // LivingEntity의 RestoreSpeed() 실행 (이동속도 증가)
-        base.RestoreSpeed(newSpeed);
-        // 이동속도 갱신 확인로그
-        Debug.Log(speed);
-    }
-
 
     // 데미지 처리
     public override void OnDamage(float damage, Vector3 hitPoint,
