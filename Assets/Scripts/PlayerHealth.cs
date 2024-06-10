@@ -60,6 +60,8 @@ public class PlayerHealth : LivingEntity {
 
         // LivingEntity의 OnDamage() 실행(데미지 적용)
         base.OnDamage(damage, hitPoint, hitDirection);
+        //증가한 이동속도를 리셋
+        playerMovement.ResetSpeed();
         // 갱신된 체력을 체력 슬라이더에 반영
         healthSlider.value = health;
     }

@@ -66,11 +66,14 @@ public class PlayerMovement : LivingEntity {
     {
         // LivingEntity의 RestoreSpeed() 실행 (이동속도 증가)
         base.RestoreSpeed(newSpeed);
-        // 이동속도 갱신 확인로그
-        Debug.Log(speed);
+        Debug.Log("속도 증가 :" + speed);
     }
-
-
+    public override void ResetSpeed()
+    {
+        // LivingEntity의 RestoreSpeed() 실행 (이동속도 증가)
+        base.ResetSpeed();
+        Debug.Log("속도 리셋 :" + speed);
+    }
 
 
 

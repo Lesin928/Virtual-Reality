@@ -15,8 +15,9 @@ public class LivingEntity : MonoBehaviour, IDamageable {
     protected virtual void OnEnable() {
         // 사망하지 않은 상태로 시작
         dead = false;
-        // 체력을 시작 체력으로 초기화
+        // 속도를 시작 속도로 초기화
         speed = startingSpeed;
+        // 체력을 시작 체력으로 초기화
         health = startingHealth;
     }
 
@@ -29,35 +30,51 @@ public class LivingEntity : MonoBehaviour, IDamageable {
         // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 0 && !dead)
         {
-            //Die();
+            Die();
         }
     }
 
     // 체력을 회복하는 기능
-    public virtual void RestoreHealth(float newHealth) {
+    public virtual void RestoreHealth(float newHealth) { 
         if (dead)
         {
             // 이미 사망한 경우 체력을 회복할 수 없음
             return;
         }
-
         // 체력 추가
         health += newHealth;
+        Debug.Log("체력 회복 :" + newHealth);
     }
-
 
     // 이동속도가 증가하는 기능
     public virtual void RestoreSpeed(float newSpeed)
-    { 
+    {
         if (dead)
         {
             // 이미 사망한 경우 이동속도를 증가시킬 수 없음
             return;
         }
         // 이동속도 증가
-        speed += newSpeed;
-        Debug.Log("증가완료");
+        if (speed <= 8f)
+        {
+            speed += newSpeed;
+        }       
+        
+    }
+    // 이동속도가 감소하는 기능
+    public virtual void ResetSpeed()
+    {
+        if (dead)
+        {
+            // 이미 사망한 경우 이동속도를 증가시킬 수 없음
+            return;
+        }
 
+        if (speed != startingSpeed)
+        { 
+            //이동속도가 증가한 경우 속도 리셋
+            speed = startingSpeed;
+        }
     }
 
 
@@ -68,7 +85,6 @@ public class LivingEntity : MonoBehaviour, IDamageable {
         {
             onDeath();
         }
-
         // 사망 상태를 참으로 변경
         dead = true;
     }
