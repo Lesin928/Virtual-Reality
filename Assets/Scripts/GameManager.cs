@@ -25,12 +25,21 @@ public class GameManager : MonoBehaviour {
     public bool isGameover { get; private set; } // 게임 오버 상태
 
     private void Awake() {
+
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
         if (instance != this)
         {
             // 자신을 파괴
             Destroy(gameObject);
         }
+
+        //게임 시작
+        if (UIManager.instance.GetActiveGameStartUI())
+        {
+            isGameover = true;
+            Time.timeScale = 0;
+        }
+
     }
 
     private void Start() {
@@ -57,5 +66,13 @@ public class GameManager : MonoBehaviour {
         isGameover = true;
         // 게임 오버 UI를 활성화
         UIManager.instance.SetActiveGameoverUI(true);
+    }
+
+    public void NewGame()
+    {
+        // 게임 오버 상태를 거짓으로 변경
+        isGameover = false;
+        // 게임 오버 UI를 비활성화
+        UIManager.instance.SetActiveGameoverUI(false);
     }
 }
