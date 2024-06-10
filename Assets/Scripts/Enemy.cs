@@ -17,7 +17,7 @@ public class Enemy : LivingEntity {
     private AudioSource enemyAudioPlayer; // 오디오 소스 컴포넌트
     private Renderer enemyRenderer; // 렌더러 컴포넌트
 
-    public float damage = 20f; // 공격력
+    public float damage = 15f; // 공격력
     public float timeBetAttack = 0.5f; // 공격 간격
     private float lastAttackTime; // 마지막 공격 시점
 
@@ -135,6 +135,7 @@ public class Enemy : LivingEntity {
 
         // LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage, hitPoint, hitNormal);
+        Debug.Log("데미지 : " + damage + "체력 : " + health);
     }
 
     // 사망 처리

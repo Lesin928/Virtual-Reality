@@ -42,8 +42,14 @@ public class LivingEntity : MonoBehaviour, IDamageable {
             return;
         }
         // 체력 추가
-        health += newHealth;
-        Debug.Log("체력 회복 :" + newHealth);
+        if (health <= 50f)
+        {
+            health += newHealth;
+        }
+        else if (health > 50f)
+        {
+            health = 100f;
+        }
     }
 
     // 이동속도가 증가하는 기능

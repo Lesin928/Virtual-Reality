@@ -9,10 +9,10 @@ public class EnemySpawner : MonoBehaviour {
     public Transform[] spawnPoints; // 적 AI를 소환할 위치들
 
     public float damageMax = 40f; // 최대 공격력
-    public float damageMin = 20f; // 최소 공격력
+    public float damageMin = 10f; // 최소 공격력
 
-    public float healthMax = 200f; // 최대 체력
-    public float healthMin = 100f; // 최소 체력
+    public float healthMax = 100f; // 최대 체력
+    public float healthMin = 25f; // 최소 체력
 
     public float speedMax = 3f; // 최대 속도
     public float speedMin = 1f; // 최소 속도
@@ -50,9 +50,9 @@ public class EnemySpawner : MonoBehaviour {
         // 웨이브 1 증가
         wave++;
 
-        // 현재 웨이브 * 1.5에 반올림 한 개수 만큼 적을 생성
-        int spawnCount = Mathf.RoundToInt(wave * 1.5f);
-
+        // 현재 웨이브 * 1.2에 반올림 한 개수 만큼 적을 생성
+        int spawnCount = Mathf.RoundToInt(wave * 1.2f + 3);
+        
         // spawnCount 만큼 적을 생성
         for (int i = 0; i < spawnCount; i++)
         {

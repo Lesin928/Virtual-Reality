@@ -47,6 +47,7 @@ public class PlayerHealth : LivingEntity {
         base.RestoreHealth(newHealth);
         // 체력 갱신
         healthSlider.value = health;
+        Debug.Log("체력 회복 :" + health);
     }
 
     // 데미지 처리
@@ -64,6 +65,7 @@ public class PlayerHealth : LivingEntity {
         playerMovement.ResetSpeed();
         // 갱신된 체력을 체력 슬라이더에 반영
         healthSlider.value = health;
+        Debug.Log("체력 감소 :" + health);
     }
 
     // 사망 처리

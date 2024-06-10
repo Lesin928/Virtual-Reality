@@ -23,11 +23,11 @@ public class Gun : MonoBehaviour {
     public AudioClip shotClip; // 발사 소리
     public AudioClip reloadClip; // 재장전 소리
 
-    public float damage = 25; // 공격력
+    public float damage = 25f; // 공격력
     private float fireDistance = 50f; // 사정거리
 
-    public int ammoRemain = 100; // 남은 전체 탄약
-    public int magCapacity = 25; // 탄창 용량
+    public int ammoRemain = 200; // 남은 전체 탄약
+    public int magCapacity = 40; // 탄창 용량
     public int magAmmo; // 현재 탄창에 남아있는 탄약
 
 

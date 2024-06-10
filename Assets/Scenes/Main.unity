@@ -585,6 +585,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114981677178112688, guid: 63226789a2ac34fec8493b064c47bd44,
+        type: 3}
+      propertyPath: m_Text
+      value: 40/200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63226789a2ac34fec8493b064c47bd44, type: 3}
 --- !u!1 &959788477
@@ -1254,9 +1259,9 @@ MonoBehaviour:
   - {fileID: 1208000542}
   - {fileID: 1208000541}
   damageMax: 40
-  damageMin: 20
-  healthMax: 200
-  healthMin: 100
+  damageMin: 10
+  healthMax: 100
+  healthMin: 25
   speedMax: 3
   speedMin: 1
   strongEnemyColor: {r: 1, g: 0, b: 0, a: 1}
@@ -2027,8 +2032,8 @@ MonoBehaviour:
   shotClip: {fileID: 8300000, guid: b82a66dab749415458d1f6600c997095, type: 3}
   reloadClip: {fileID: 8300000, guid: 9eca29ee7f8209e419470fcd586aec21, type: 3}
   damage: 25
-  ammoRemain: 100
-  magCapacity: 25
+  ammoRemain: 200
+  magCapacity: 40
   magAmmo: 0
   timeBetFire: 0.12
   reloadTime: 1.8
