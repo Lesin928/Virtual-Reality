@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
             // 점수 추가
             score += newScore;
             // 점수 UI 텍스트 갱신
-            UIManager.instance.UpdateScoreText(score);
+            UIManager.instance.UpdateScoreText(score, gameLevel);
         }
     }
 
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour {
         isGameover = false;
         // 게임 오버 UI를 비활성화
         UIManager.instance.SetActiveGameoverUI(false);
+        
     }
 
 

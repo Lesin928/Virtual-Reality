@@ -34,9 +34,9 @@ public class UIManager : MonoBehaviour {
     }
 
     // 점수 텍스트 갱신
-    public void UpdateScoreText(int newScore) {
+    public void UpdateScoreText(int newScore, int level) {
         scoreText.text = "Score : " + newScore;
-        resultText.text = "Score : " + newScore;
+        resultText.text = "Score : " + newScore + "\nlevel : " + LevelCheck(level);
     }
 
     // 적 웨이브 텍스트 갱신
@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour {
 
     // 게임 오버 UI 활성화
     public void SetActiveGameoverUI(bool active) {
+
         gameoverUI.SetActive(active);
     }
 
