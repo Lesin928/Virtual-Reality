@@ -205,7 +205,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114467244528323853}
-        m_MethodName: GameStart
+        m_MethodName: HardStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1198,7 +1198,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114467244528323853}
-        m_MethodName: GameStart
+        m_MethodName: EasyStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1330,7 +1330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1234251288
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1514,6 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e090a9750849f49c282494b652e54999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLevel: 0
 --- !u!4 &1370410591
 Transform:
   m_ObjectHideFlags: 0
@@ -1640,7 +1641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1421313825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2029,7 +2030,7 @@ GameObject:
   - component: {fileID: 1619859043}
   - component: {fileID: 1619859042}
   m_Layer: 5
-  m_Name: Score Text
+  m_Name: result Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3037,7 +3038,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114467244528323853}
-        m_MethodName: GameStart
+        m_MethodName: NomalStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3174,7 +3175,7 @@ GameObject:
   - component: {fileID: 114010141265003209}
   - component: {fileID: 114939508973093129}
   m_Layer: 5
-  m_Name: result Text
+  m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3271,7 +3272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1776548129653279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,10 +3486,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoText: {fileID: 114981676875876969}
   scoreText: {fileID: 114010141265003209}
-  resultText: {fileID: 114010141265003209}
+  resultText: {fileID: 1619859042}
   waveText: {fileID: 114843940542164875}
   gamestartUI: {fileID: 1234251287}
   gameoverUI: {fileID: 1496762707117907}
+  EnemySpawner: {fileID: 1421313824}
 --- !u!114 &114514453651049205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3654,7 +3656,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Wave : 0
 
-    Enemy Left : 0'
+    Enemy Left : 0
+
+    level : easy'
 --- !u!114 &114939508973093129
 MonoBehaviour:
   m_ObjectHideFlags: 0

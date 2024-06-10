@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
     private int score = 0; // 현재 게임 점수
     public bool isGameover { get; private set; } // 게임 오버 상태
 
+    public int gameLevel = 0; //현재 게임 난이도
+
     private void Awake() {
 
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour {
         UIManager.instance.SetActiveGameoverUI(true);
     }
 
+    //게임 시작
     public void NewGame()
     {
         // 게임 오버 상태를 거짓으로 변경
@@ -75,4 +78,6 @@ public class GameManager : MonoBehaviour {
         // 게임 오버 UI를 비활성화
         UIManager.instance.SetActiveGameoverUI(false);
     }
+
+
 }

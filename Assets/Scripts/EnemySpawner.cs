@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public Transform[] spawnPoints; // 적 AI를 소환할 위치들
 
-    public float damageMax = 40f; // 최대 공격력
+    public float damageMax = 30f; // 최대 공격력
     public float damageMin = 10f; // 최소 공격력
 
     public float healthMax = 100f; // 최대 체력
@@ -21,6 +21,19 @@ public class EnemySpawner : MonoBehaviour {
 
     private List<Enemy> enemies = new List<Enemy>(); // 생성된 적들을 담는 리스트
     private int wave; // 현재 웨이브
+    private int level; // 현재 난이도
+
+    private void Start() {
+
+        level = GameManager.instance.gameLevel;
+        //난이도에 맞게 변수 값 조절
+        damageMin += 5.0f * level;
+        damageMax += 5.0f * level;
+        healthMax += 20.0f * level;
+        healthMin += 5.0f * level;
+        speedMax += 1.0f * level;
+        speedMin += 0.3f * level;
+}
 
     private void Update() {
         // 게임 오버 상태일때는 생성하지 않음
@@ -42,7 +55,7 @@ public class EnemySpawner : MonoBehaviour {
     // 웨이브 정보를 UI로 표시
     private void UpdateUI() {
         // 현재 웨이브와 남은 적의 수 표시
-        UIManager.instance.UpdateWaveText(wave, enemies.Count);
+        UIManager.instance.UpdateWaveText(wave, enemies.Count, level);
     }
 
     // 현재 웨이브에 맞춰 적을 생성
