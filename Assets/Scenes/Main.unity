@@ -1724,7 +1724,8 @@ MonoBehaviour:
   objectToActivate: {fileID: 498790959}
   triggeringTag: Player
   deactivateDelay: 5
-  burn: 5
+  damageInterval: 1
+  burnDamage: 5
 --- !u!1 &1179610387
 GameObject:
   m_ObjectHideFlags: 0
