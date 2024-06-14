@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour {
 
     public Text ammoText; // 탄약 표시용 텍스트
     public Text scoreText; // 점수 표시용 텍스트
-    public Text resultText; // 결과 표시용 텍스트
+    public Text overResultText; // 게임오버 결과 표시용 텍스트
+    public Text clearResultText; // 클리어 결과 표시용 텍스트
     public Text waveText; // 적 웨이브 표시용 텍스트
     public GameObject gameStartUI; // 게임 시작시 비활성화할 UI 
     public GameObject gameOverUI; // 게임 오버시 활성화할 UI 
@@ -62,7 +63,8 @@ public class UIManager : MonoBehaviour {
     // 점수 텍스트 갱신
     public void UpdateScoreText(int newScore, int level) {
         scoreText.text = "Score : " + newScore;
-        resultText.text = "Score : " + newScore + "\nlevel : " + LevelCheck(level);
+        overResultText.text = "Score : " + newScore + "\nlevel : " + LevelCheck(level);
+        clearResultText.text = "Score : " + newScore + "\nlevel : " + LevelCheck(level);
     }
 
     // 적 웨이브 텍스트 갱신
