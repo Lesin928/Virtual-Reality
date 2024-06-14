@@ -14,6 +14,7 @@ public class AdPack : MonoBehaviour, IItem
         {
             life.RestoreSpeed(adSpeed);
         }
+        Debug.Log("Ad 획득");
         // 사용되었으므로, 자신을 파괴
         Destroy(gameObject);
     }

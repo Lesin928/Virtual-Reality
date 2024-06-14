@@ -14,7 +14,7 @@ public class HealthPack : MonoBehaviour, IItem {
             // 체력 회복 실행
             life.RestoreHealth(health);
         }
-
+        Debug.Log("HP PACK 획득");
         // 사용되었으므로, 자신을 파괴
         Destroy(gameObject);
     }
