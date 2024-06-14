@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
     private void Start() {
         // 플레이어 캐릭터의 사망 이벤트 발생시 게임 오버
         FindObjectOfType<PlayerHealth>().onDeath += EndGame;
+
     }
 
 
@@ -68,6 +69,17 @@ public class GameManager : MonoBehaviour {
         isGameover = true;
         // 게임 오버 UI를 활성화
         UIManager.instance.SetActiveGameoverUI(true);
+        Time.timeScale = 0;
+    }
+
+    // 게임 클리어 처리
+    public void ClearGame()
+    {
+        // 게임 오버 상태를 참으로 변경
+        isGameover = true;
+        // 게임 클리어 UI를 활성화
+        UIManager.instance.SetActiveGameClearUI(true);
+        Time.timeScale = 0;
     }
 
     //게임 시작
@@ -77,7 +89,7 @@ public class GameManager : MonoBehaviour {
         isGameover = false;
         // 게임 오버 UI를 비활성화
         UIManager.instance.SetActiveGameoverUI(false);
-        
+        UIManager.instance.SetActiveGameClearUI(false);
     }
 
 

@@ -24,8 +24,9 @@ public class UIManager : MonoBehaviour {
     public Text scoreText; // 점수 표시용 텍스트
     public Text resultText; // 결과 표시용 텍스트
     public Text waveText; // 적 웨이브 표시용 텍스트
-    public GameObject gamestartUI; // 게임 시작시 비활성화할 UI 
-    public GameObject gameoverUI; // 게임 오버시 활성화할 UI 
+    public GameObject gameStartUI; // 게임 시작시 비활성화할 UI 
+    public GameObject gameOverUI; // 게임 오버시 활성화할 UI 
+    public GameObject gameClearUI; // 게임 클리어시 활성화할 UI 
     public GameObject EnemySpawner;      
 
     // 탄약 텍스트 갱신
@@ -47,17 +48,24 @@ public class UIManager : MonoBehaviour {
     // 게임 스타트 UI 비활성화
     public void SetActiveGameStartUI(bool active)
     {
-        gamestartUI.SetActive(active);
+        gameStartUI.SetActive(active);
     }
     public bool GetActiveGameStartUI()
     {
-        return gamestartUI.activeSelf;
+        return gameStartUI.activeSelf;
     }
 
     // 게임 오버 UI 활성화
     public void SetActiveGameoverUI(bool active) {
 
-        gameoverUI.SetActive(active);
+        gameOverUI.SetActive(active);
+    }
+
+    // 게임 클리어 UI 활성화
+    public void SetActiveGameClearUI(bool active)
+    {
+
+        gameClearUI.SetActive(active);
     }
 
     // 게임 시작
@@ -80,7 +88,9 @@ public class UIManager : MonoBehaviour {
     {
         Time.timeScale = 1;
         SetActiveGameStartUI(false);
-        GameManager.instance.NewGame();
+        TimerManager.instance.SetActiveTimerUI(true);
+        GameManager.instance.NewGame(); 
+        GameManager.instance.AddScore(0);
         EnemySpawner.SetActive(true);
     }
     public void GameRestart()
