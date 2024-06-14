@@ -8,8 +8,8 @@ public class TimerManager : MonoBehaviour
 {
     public float totalTime = 11f; // 총 시간 (초 단위로 3분)
     private float currentTime; // 현재 남은 시간
-    public Text GameTimeText;
-    public GameObject TimeText;
+    public Text TimeText;
+    public GameObject GameTimeText;
 
     // 싱글톤 접근용 프로퍼티
     public static TimerManager instance
@@ -41,7 +41,7 @@ public class TimerManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 currentTime = 0;
-                GameTimeText.gameObject.SetActive(false); // 시간이 0이 되면 텍스트 비활성화
+                TimeText.gameObject.SetActive(false); // 시간이 0이 되면 텍스트 비활성화
             }
         }
         else
@@ -52,13 +52,13 @@ public class TimerManager : MonoBehaviour
 
     public void SetActiveTimerUI(bool active)
     {
-        TimeText.SetActive(active);
+        GameTimeText.SetActive(active);
     }
 
     private void UpdateGameTimeText()
     {
         int minutes = Mathf.FloorToInt(currentTime / 60); // 분 계산
         int seconds = Mathf.FloorToInt(currentTime % 60); // 초 계산
-        GameTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // 텍스트 업데이트
+        TimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // 텍스트 업데이트
     }
 }

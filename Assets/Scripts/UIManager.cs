@@ -9,16 +9,16 @@ public class UIManager : MonoBehaviour {
     {
         get
         {
-            if (m_instance == null)
+            if (u_instance == null)
             {
-                m_instance = FindObjectOfType<UIManager>();
+                u_instance = FindObjectOfType<UIManager>();
             }
 
-            return m_instance;
+            return u_instance;
         }
     }
 
-    private static UIManager m_instance; // 싱글톤이 할당될 변수
+    private static UIManager u_instance; // 싱글톤이 할당될 변수
 
     public Text ammoText; // 탄약 표시용 텍스트
     public Text scoreText; // 점수 표시용 텍스트
@@ -27,7 +27,32 @@ public class UIManager : MonoBehaviour {
     public GameObject gameStartUI; // 게임 시작시 비활성화할 UI 
     public GameObject gameOverUI; // 게임 오버시 활성화할 UI 
     public GameObject gameClearUI; // 게임 클리어시 활성화할 UI 
-    public GameObject EnemySpawner;      
+    public GameObject gamePauseUI; // 일시정지시 활성화할 UI  
+    public GameObject EnemySpawner;
+    private PlayerInput playerInput; // 플레이어의 입력
+    public bool IsPaused { get; private set; } // 게임 정지 상태
+
+    private void Start()
+    {
+        // 사용할 컴포넌트들을 가져오기
+        playerInput = FindObjectOfType<PlayerInput>();
+        IsPaused = false;
+    }
+    private void Update()
+    {
+        // ESC 키 입력 처리, 게임 진행중에만
+        if (playerInput.pause && !GameManager.instance.IsGameover)// 
+        {
+            if (!IsPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                Result();
+            }
+        }
+    }
 
     // 탄약 텍스트 갱신
     public void UpdateAmmoText(int magAmmo, int remainAmmo) {
@@ -67,19 +92,43 @@ public class UIManager : MonoBehaviour {
 
         gameClearUI.SetActive(active);
     }
+    // 일시정지 UI 활성화
+    public void Pause()
+    {     
+        Time.timeScale = 0;        
+        IsPaused = true;        
+        gamePauseUI.SetActive(true);
+    }
+    public void Result()
+    {
+        Time.timeScale = 1;
+        IsPaused = false;
+        gamePauseUI.SetActive(false);
+    }
+    public void Quit()
+    {
+        // 에디터에서 실행 중인지 확인            
+        #if UNITY_EDITOR            
+        // 에디터에서 플레이 모드를 중지            
+        UnityEditor.EditorApplication.isPlaying = false;            
+        #else         
+        // 빌드된 게임에서 프로그램 종료            
+        Application.Quit();          
+        #endif
+    }
 
     // 게임 시작
-    public void EasyStart()
+    public void NomalStart()
     {
         GameManager.instance.gameLevel = 0;
         GameStart();
     }
-    public void NomalStart()
+    public void HardStart()
     {
         GameManager.instance.gameLevel = 1;
         GameStart();
     }
-    public void HardStart()
+    public void ExtremeStart()
     {
         GameManager.instance.gameLevel = 2;
         GameStart();
@@ -103,13 +152,13 @@ public class UIManager : MonoBehaviour {
         switch (level)
         {
             case (0):
-                return "easy";
-            case (1):
                 return "Nomal";
-            case (2):
+            case (1):
                 return "Hard";
+            case (2):
+                return "Extreme";
             default:
-                return "easy";                
+                return "";                
         }
     }
 }
