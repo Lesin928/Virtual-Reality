@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour {
     public Text overResultText; // 게임오버 결과 표시용 텍스트
     public Text clearResultText; // 클리어 결과 표시용 텍스트
     public Text waveText; // 적 웨이브 표시용 텍스트
+    public Text highScoreText1; // 최고 점수 표시용 텍스트    
+    public Text highScoreText2; // 최고 점수 표시용 텍스트    
+
     public GameObject gameStartUI; // 게임 시작시 비활성화할 UI 
     public GameObject gameOverUI; // 게임 오버시 활성화할 UI 
     public GameObject gameClearUI; // 게임 클리어시 활성화할 UI 
@@ -66,11 +69,16 @@ public class UIManager : MonoBehaviour {
         overResultText.text = "Score : " + newScore + "\nlevel : " + LevelCheck(level);
         clearResultText.text = "Score : " + newScore + "\nlevel : " + LevelCheck(level);
     }
+    public void UpdateHighScoreText(int newScore) {
+        highScoreText1.text = "HighScore : " + newScore;
+        highScoreText2.text = "HighScore : " + newScore;
+    }
 
     // 적 웨이브 텍스트 갱신
     public void UpdateWaveText(int waves, int count, int level) {
         waveText.text = "Wave : " + waves + "\nEnemy Left : " + count+ "\nlevel : " + LevelCheck(level);
     }
+
 
     // 게임 스타트 UI 비활성화
     public void SetActiveGameStartUI(bool active)
@@ -163,4 +171,6 @@ public class UIManager : MonoBehaviour {
                 return "";                
         }
     }
+
+
 }

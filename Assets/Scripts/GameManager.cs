@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour {
     public void EndGame() {
         // 게임 오버 상태를 참으로 변경
         IsGameover = true;
+        // 최종 스코어 업데이트 코드
+        UIManager.instance.UpdateHighScoreText(LoadHighScore());
         // 게임 오버 UI를 활성화
         UIManager.instance.SetActiveGameoverUI(true);
         Time.timeScale = 0;
@@ -75,7 +77,10 @@ public class GameManager : MonoBehaviour {
     public void ClearGame()
     {
         // 게임 오버 상태를 참으로 변경
-        IsGameover = true; 
+        IsGameover = true;
+        // 스코어 최종 업데이트 코드
+        SaveHighScore(score);
+        UIManager.instance.UpdateHighScoreText(LoadHighScore());
         // 게임 클리어 UI를 활성화
         UIManager.instance.SetActiveGameClearUI(true);
         Time.timeScale = 0;
@@ -91,5 +96,18 @@ public class GameManager : MonoBehaviour {
         UIManager.instance.SetActiveGameClearUI(false);
     }
 
+    public void SaveHighScore(int currentScore)        
+    {
+        int highScore = LoadHighScore();
+        if (currentScore > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", currentScore);
+            PlayerPrefs.Save();
+        }
+    }
 
+    public int LoadHighScore()
+    {
+        return PlayerPrefs.GetInt("HighScore", 0);
+    }
 }
