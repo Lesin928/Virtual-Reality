@@ -9259,7 +9259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3134d7418b1613d46b36d99fb98e2407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 3
+  totalTime: 181
   TimeText: {fileID: 1570242180}
   GameTimeText: {fileID: 1570242177}
 --- !u!1 &1092682030203675
