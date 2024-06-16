@@ -103,13 +103,42 @@ public class GameManager : MonoBehaviour {
         int highScore = LoadHighScore();
         if (currentScore > highScore)
         {
-            PlayerPrefs.SetInt("HighScore", currentScore);
-            PlayerPrefs.Save();
+            switch (gameLevel)
+            {
+                case (0):
+                    PlayerPrefs.SetInt("Nomal HighScore", currentScore);
+                    PlayerPrefs.Save();
+                    break;
+                case (1):
+                    PlayerPrefs.SetInt("Hard HighScore", currentScore);
+                    PlayerPrefs.Save();
+                    break;
+                case (2):
+                    PlayerPrefs.SetInt("EX HighScore", currentScore);
+                    PlayerPrefs.Save();
+                    break;
+
+                default:
+                    PlayerPrefs.SetInt("Nomal HighScore", currentScore);
+                    PlayerPrefs.Save();
+                    break;
+            }
         }
     }
 
     public int LoadHighScore()
     {
-        return PlayerPrefs.GetInt("HighScore", 0);
+        switch (gameLevel)
+        {
+            case (0):
+                return PlayerPrefs.GetInt("Nomal HighScore", 0);
+            case (1):
+                return PlayerPrefs.GetInt("Hard HighScore", 0);
+            case (2):
+                return PlayerPrefs.GetInt("EX HighScore", 0);
+            default:
+                return PlayerPrefs.GetInt("Nomal HighScore", 0);
+        }
+
     }
 }
