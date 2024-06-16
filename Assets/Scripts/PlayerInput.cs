@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-// 플레이어 캐릭터를 조작하기 위한 사용자 입력을 감지
+// 플레이어 캐릭터를 조작하기 위한 사용자 입력을 감지하는 스크립트
 // 감지된 입력값을 다른 컴포넌트들이 사용할 수 있도록 제공
 public class PlayerInput : MonoBehaviour {
     public string moveAxisName = "Vertical"; // 앞뒤 움직임을 위한 입력축 이름

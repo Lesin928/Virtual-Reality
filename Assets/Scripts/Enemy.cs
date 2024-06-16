@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI; // AI, 내비게이션 시스템 관련 코드를 가져오기
 
-// 적 AI를 구현한다
+// 적 AI를 구현한 스크립트
 public class Enemy : LivingEntity {
     public LayerMask whatIsTarget; // 추적 대상 레이어
 

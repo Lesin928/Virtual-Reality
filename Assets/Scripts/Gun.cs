@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-// 총을 구현한다
+// 총의 기능을 구현한 스크립트
 public class Gun : MonoBehaviour {
-    // 총의 상태를 표현하는데 사용할 타입을 선언한다
+    // 총의 상태를 표현하는데 사용할 타입을 선언
     public enum State {
         Ready, // 발사 준비됨
         Empty, // 탄창이 빔

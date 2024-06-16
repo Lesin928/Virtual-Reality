@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 적 게임 오브젝트를 주기적으로 생성
+// 적 게임 오브젝트를 주기적으로 생성하는 스크립트
 public class EnemySpawner : MonoBehaviour {
     public Enemy enemyPrefab; // 생성할 적 AI
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-// 체력을 회복하는 아이템
+// 체력회복 아이템의 기능을 구현한 스크립트
 public class HealthPack : MonoBehaviour, IItem {
     public float health = 50; // 체력을 회복할 수치
 

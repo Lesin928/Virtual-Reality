@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; // UI 관련 코드
 
-// 플레이어 캐릭터의 생명체로서의 동작을 담당
+// 플레이어 캐릭터의 생명체로서의 동작을 담당하는 스크립트
 public class PlayerHealth : LivingEntity {
     public Slider healthSlider; // 체력을 표시할 UI 슬라이더
 

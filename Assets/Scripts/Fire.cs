@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+//플레이어가 불타는 기능을 구현한 스크립트
 public class Fire : MonoBehaviour
 {
     public GameObject objectToActivate; // 활성화할 게임 오브젝트

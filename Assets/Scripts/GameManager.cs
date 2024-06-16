@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 // 점수와 게임 오버 여부, 게임 UI를 관리하는 게임 매니저
+// 기능이 복잡해져 UI 매니저로 UI 관련 기능을 분할
+
 public class GameManager : MonoBehaviour {
     // 외부에서 싱글톤 오브젝트를 가져올때 사용할 프로퍼티
     public static GameManager instance

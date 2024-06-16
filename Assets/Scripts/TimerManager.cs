@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//시간을 관리하는 스크립트
 public class TimerManager : MonoBehaviour
 {
     public float totalTime = 11f; // 총 시간 (초 단위로 3분)
